@@ -1,2 +1,2 @@
 # HiddenDictator
-Secrete Hitler Game for Web
+Secret Hitler Game for Web
