@@ -1,3 +1,2 @@
-workspace_m122/.metadata
-workspace_m122/.recommenders
-workspace_m122/Servers
+*.metadata
+*.recommenders
