@@ -14,13 +14,13 @@
 	href="bootstrap-3.3.6/dist/css/bootstrap-theme.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
-<script
-	src="bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
+<script src="bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Hidden Dictator</title>
 </head>
 <body>
 	<%
+		session.setMaxInactiveInterval(-1);
 		String p = Util.getPage(session);
 	%>
 	<jsp:include page='<%="includes/" + p + ".jsp"%>' />

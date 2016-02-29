@@ -13,7 +13,7 @@
 		for (User u : lobby.getUserList()) {
 			out.print("<li>");
 			if (u.isAdm()) {
-				out.print("*ADMIN*");
+				out.print("*ADMIN* ");
 			}
 			out.print(u.getName());
 			if (u.isReady()) {
