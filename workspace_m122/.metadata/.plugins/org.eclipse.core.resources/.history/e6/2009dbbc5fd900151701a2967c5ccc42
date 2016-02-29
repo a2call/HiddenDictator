@@ -1,0 +1,23 @@
+<%@page import="ch.dnisler.hiddendictator.User"%>
+<%@page import="ch.dnisler.hiddendictator.Server"%>
+<%@page import="ch.dnisler.hiddendictator.Lobby"%>
+<h1>
+	<%
+		out.print("Welcome to " + (String) session.getAttribute("lobby"));
+	%>
+</h1>
+<ul>
+	<%
+		Lobby lobby = Server.getLobbyMap().get((String) session.getAttribute("lobby"));
+		for (User u : lobby.getUserList()) {
+			out.print("<li>");
+			out.print(u.getName());
+			if(u.isReady()){
+				out.print(" [READY]");
+			}else{
+				out.print(" [NOT READY]");
+			}
+			out.print("</li>");
+		}
+	%>
+</ul>

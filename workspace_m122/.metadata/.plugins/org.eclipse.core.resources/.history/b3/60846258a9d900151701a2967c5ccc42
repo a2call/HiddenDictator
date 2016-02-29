@@ -1,0 +1,29 @@
+package ch.dnisler.hiddendictator;
+
+public class User {
+	private String name;
+	private String status;
+	private String lobby;
+	private boolean isReady = false;
+	public User(String name){
+		this.setName(name);
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public boolean isReady() {
+		return isReady;
+	}
+	public void setReady(boolean isReady) {
+		this.isReady = isReady;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+}

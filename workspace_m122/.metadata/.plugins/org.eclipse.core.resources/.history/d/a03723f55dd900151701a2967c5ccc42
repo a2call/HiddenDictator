@@ -1,0 +1,7 @@
+package ch.dnisler.hiddendictator;
+
+public class User {
+	public User(){
+		
+	}
+}

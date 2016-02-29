@@ -1,0 +1,7 @@
+package ch.dnisler.hiddendictator;
+
+import java.util.HashMap;
+
+public class Server {
+	private HashMap<String, User> userlist = new HashMap<>();
+}

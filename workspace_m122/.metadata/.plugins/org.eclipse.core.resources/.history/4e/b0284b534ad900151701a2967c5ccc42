@@ -1,0 +1,17 @@
+package ch.dnisler.hiddendictator;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Server {
+	private static Map<String, User> userlist = new HashMap<>();
+	private static Map<String, Lobby> lobbylist = new HashMap<>();
+
+	public static User addUser(String username) {
+		return userlist.put(username, new User());
+	}
+
+	public static Lobby addLobby(String lobbyname) {
+		return lobbylist.put(lobbyname, new Lobby());
+	}
+}

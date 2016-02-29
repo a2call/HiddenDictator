@@ -1,0 +1,11 @@
+<%@page import="ch.dnisler.hiddendictator.Lobby"%>
+<h1>
+	<%
+		out.print("Welcome to " + (String)session.getAttribute("lobby"));
+	%>
+</h1>
+<ul>
+	<%
+		Lobby lobby = lobb
+	%>
+</ul>

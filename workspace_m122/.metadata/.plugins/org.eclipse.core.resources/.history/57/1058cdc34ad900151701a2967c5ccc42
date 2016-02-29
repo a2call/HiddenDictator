@@ -1,0 +1,7 @@
+<%@page import="ch.dnisler.hiddendictator.Server"%>
+<%@page import="java.util.Map"%>
+<h1>Lobby List</h1>
+<%
+	Map lobbyMap = Server.getLobbyMap();
+	Set lobbies = lobbyMap.entrySet();
+%>

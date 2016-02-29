@@ -1,0 +1,13 @@
+1456131866103	Copy source folder
+1456132700520	Move 'include.jsp' to 'includes'
+1456134997815	Rename field 'userlist'
+1456135002310	Rename field 'lobbylist'
+1456135009811	Rename method 'getLobbyList'
+1456143083884	Rename field 'playerList'
+1456143333206	Encapsulate field 'name'
+1456143563657	Encapsulate field 'isReady'
+1456175699329	Encapsulate field 'status'
+1456175706073	Encapsulate field 'lobby'
+1456175994297	Delete element
+1456176240594	Encapsulate field 'faction'
+1456176366147	Encapsulate field 'isAdm'

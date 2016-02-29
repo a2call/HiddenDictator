@@ -1,0 +1,13 @@
+package ch.dnisler.hiddendictator;
+
+import javax.servlet.http.HttpSession;
+
+public class Util {
+	public static String getPage(HttpSession session){
+		if(session.getAttribute("status") == "registered"){
+			return "registered";
+		}else{
+			return "home";
+		}
+	}
+}

@@ -1,0 +1,13 @@
+package ch.dnisler.hiddendictator;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Lobby {
+	private List<User> playerList = new ArrayList<>();
+
+	public boolean addUser(){
+		
+	}
+	
+}
