@@ -1,5 +1,0 @@
-<h1>
-	<%
-		out.print("Welcome to " + session.getAttribute("lobby").toString());
-	%>
-</h1>

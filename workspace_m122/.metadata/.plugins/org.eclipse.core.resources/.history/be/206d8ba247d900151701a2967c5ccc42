@@ -1,6 +1,0 @@
-<h1>Welcome to hidden Dictator, comerade!</h1>
-<h2>To join a game, please enter your name:</h2>
-<form method="get" action="util.jsp">
-	<input type="text">
-	<input type="submit">
-</form>

@@ -6,6 +6,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
+<%	response.setIntHeader("Refresh", 5);%>
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="bootstrap-3.3.6/dist/css/bootstrap.min.css">
 

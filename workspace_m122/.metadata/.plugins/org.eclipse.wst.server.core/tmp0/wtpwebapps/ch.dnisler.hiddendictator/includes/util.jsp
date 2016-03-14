@@ -1,4 +1,5 @@
-<%@page import="ch.dnisler.hiddendictator.Status"%>
+<%@page import="ch.dnisler.hiddendictator.Constants"%>
+<%@page import="java.util.logging.Logger"%>
 <%@page import="ch.dnisler.hiddendictator.Lobby"%>
 <%@page import="ch.dnisler.hiddendictator.User"%>
 <%@page import="ch.dnisler.hiddendictator.Server"%>
@@ -16,16 +17,16 @@
 			String username = request.getParameter("username");
 			Server.addUser(username);
 			User created = Server.getUser(username);
-			created.setStatus(Status.REGISTERED);
-			session.setAttribute("status", Status.REGISTERED);
+			created.setStatus(Constants.STATUS_REGISTERED);
+			session.setAttribute("status", Constants.STATUS_REGISTERED);
 			session.setAttribute("user", username);
 			response.sendRedirect("../index.jsp");
 		} else if (request.getParameter("lobbyname") != null) {
 			String lobbyname = request.getParameter("lobbyname");
 			Server.addLobby(lobbyname);
-			Server.getLobbyMap().get(lobbyname).addUser(session.getAttribute("user").toString(),true);
-			session.setAttribute("status", Status.INLOBBY);
-			Server.getUser(session.getAttribute("user").toString()).setStatus(Status.INLOBBY);
+			Server.getLobbyMap().get(lobbyname).addUser(session.getAttribute("user").toString(), true);
+			session.setAttribute("status", Constants.STATUS_INLOBBY);
+			Server.getUser(session.getAttribute("user").toString()).setStatus(Constants.STATUS_INLOBBY);
 			session.setAttribute("lobby", lobbyname);
 			response.sendRedirect("../index.jsp");
 		} else if (request.getParameter("setready") != null) {
@@ -35,11 +36,15 @@
 		} else if (request.getParameter("join") != null) {
 			session.setAttribute("lobby", request.getParameter("join"));
 			Lobby lobby = Server.getLobbyMap().get(request.getParameter("join"));
-			session.setAttribute("status", Status.INLOBBY);
-			Server.getUser(session.getAttribute("user").toString()).setStatus(Status.INLOBBY);
-			lobby.addUser(session.getAttribute("user").toString(),false);
+			session.setAttribute("status", Constants.STATUS_INLOBBY);
+			Server.getUser(session.getAttribute("user").toString()).setStatus(Constants.STATUS_INLOBBY);
+			lobby.addUser(session.getAttribute("user").toString(), false);
 			response.sendRedirect("../index.jsp");
-		}
+		} else if (request.getParameter("startgame") != null) {
+			String lobby = session.getAttribute("lobby").toString();
+			Server.getLobbyMap().get(lobby).startGame();
+			response.sendRedirect("../index.jsp");
+		}	
 	%>
 </body>
 </html>

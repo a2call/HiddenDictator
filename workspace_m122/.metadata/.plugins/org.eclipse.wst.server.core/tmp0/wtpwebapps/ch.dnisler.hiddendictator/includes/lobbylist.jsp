@@ -14,8 +14,13 @@
 			Map.Entry pair = (Map.Entry) it.next();
 			out.print("<li>");
 			out.print(pair.getKey());
+			if(!((Lobby)pair.getValue()).isIngame()){
 			out.print("<a href='includes/util.jsp?join=" + pair.getKey() + "'> join</a>");
+			}else{
+				out.print(" - already in game!");
+			}
 			out.print("</li>");
+			
 		}
 	%>
 </ul>

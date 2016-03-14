@@ -5,6 +5,7 @@ public class User {
 	private String status;
 	private String faction;
 	private String lobby;
+	private String role;
 	private boolean isAdm = false;
 	private boolean isReady = false;
 
@@ -44,6 +45,20 @@ public class User {
 		this.lobby = lobby;
 	}
 
+	public String getFactionSecure(String requester) {
+		String reqFaction = Server.getUser(requester).getFaction();
+		if (requester.equals(this.getName())) {
+			return faction;
+		} else {
+			if (reqFaction.equals(Constants.FACTION_LIBERAL) || reqFaction.equals(Constants.FACTION_DICTATOR)) {
+				return Constants.FACTION_HIDDEN;
+			} else {
+				return faction;
+			}
+		}
+	}
+	
+
 	public String getFaction() {
 		return faction;
 	}
@@ -58,5 +73,12 @@ public class User {
 
 	public void setAdm(boolean isAdm) {
 		this.isAdm = isAdm;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public String getRole(){
+		return role;
 	}
 }

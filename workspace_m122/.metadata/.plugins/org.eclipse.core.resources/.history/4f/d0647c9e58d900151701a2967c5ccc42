@@ -1,8 +1,0 @@
-package ch.dnisler.hiddendictator;
-
-import java.util.List;
-
-public class Lobby {
-	private List<User> playerList;
-
-}
