@@ -15,4 +15,5 @@ public interface Constants {
 	public static final String ROLE_CANDIDATE = "candidate";
 	public static final String ROLE_FRM_PRESIDENT = "former president";
 	public static final String ROLE_FRM_CHANCELLOR = "former chancellor";
+	public static final String ROLE_MEMBER = "Member of Parlament";
 }

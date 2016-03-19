@@ -6,6 +6,7 @@ public class User {
 	private String faction;
 	private String lobby;
 	private String role;
+	private String lastVote = "No vote yet";
 	private boolean isAdm = false;
 	private boolean isReady = false;
 
@@ -80,5 +81,13 @@ public class User {
 	}
 	public String getRole(){
 		return role;
+	}
+
+	public String getLastVote() {
+		return lastVote;
+	}
+
+	public void setLastVote(String lastVote) {
+		this.lastVote = lastVote;
 	}
 }

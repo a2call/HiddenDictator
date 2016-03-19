@@ -14,7 +14,10 @@ import java.util.logging.Logger;
 public class Lobby {
 	private static final Logger LOG = Logger.getLogger(Lobby.class.getName());
 	private List<User> userList = new ArrayList<>();
+	private boolean invote = false;
 	private boolean ingame = false;
+	private boolean govactive = false;
+	private Vote currVote = null;
 	private String name;
 
 	/**
@@ -41,7 +44,8 @@ public class Lobby {
 			return false;
 		}
 		LOG.info("User " + username + " entered a Lobby");
-		return userList.add(Server.getUser(username));
+		user.setRole(Constants.ROLE_MEMBER);
+		return userList.add(user);
 	}
 
 	public void startGame() {
@@ -49,6 +53,16 @@ public class Lobby {
 		setIngame(true);
 		Random r = new Random();
 		userList.get(r.nextInt(userList.size() - 1)).setRole(Constants.ROLE_PRESIDENT);
+
+	}
+
+	public void nextTurn(User president) {
+		if (userList.indexOf(president) > userList.size()) {
+			userList.get(0).setRole(Constants.ROLE_PRESIDENT);
+		} else {
+			userList.get(userList.indexOf(president) + 1).setRole(Constants.ROLE_PRESIDENT);
+
+		}
 	}
 
 	private void setUserRoles() {
@@ -72,8 +86,7 @@ public class Lobby {
 			LOG.info("Supporter: " + supporter.getName());
 			unset.remove(supporter);
 		}
-		for (int i = 0; i < unset.size(); i++) {
-			User liberal = unset.get(i);
+		for (User liberal : unset) {
 			LOG.info("Liberal: " + liberal.getName());
 			liberal.setFaction(Constants.FACTION_LIBERAL);
 		}
@@ -93,5 +106,30 @@ public class Lobby {
 
 	public void setIngame(boolean ingame) {
 		this.ingame = ingame;
+	}
+
+	public boolean isInvote() {
+		return invote;
+	}
+
+	public void setInvote(boolean invote) {
+		this.invote = invote;
+	}
+
+	public Vote getCurrVote() {
+		return currVote;
+	}
+
+	public Vote startVote(String nominee) {
+		this.currVote = new Vote(nominee);
+		return currVote;
+	}
+
+	public boolean isGovactive() {
+		return govactive;
+	}
+
+	public void setGovactive(boolean govactive) {
+		this.govactive = govactive;
 	}
 }

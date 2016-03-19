@@ -17,4 +17,14 @@ public class Util {
 		}
 	}
 
+	public static boolean validChancellor(User u) {
+		boolean valid = false;
+		if (u.getRole() != null) {
+			valid = u.getRole().equals(Constants.ROLE_FRM_CHANCELLOR)
+					&& u.getRole().equals(Constants.ROLE_FRM_CHANCELLOR);
+		} else {
+			valid = false;
+		}
+		return !valid;
+	}
 }

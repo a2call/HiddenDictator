@@ -1,3 +1,5 @@
+<%@page import="ch.dnisler.hiddendictator.Lobby"%>
+<%@page import="ch.dnisler.hiddendictator.Server"%>
 <%@page import="ch.dnisler.hiddendictator.Util"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -6,7 +8,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<%	response.setIntHeader("Refresh", 5);%>
+<%
+	response.setIntHeader("Refresh", 5);
+%>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="bootstrap-3.3.6/dist/css/bootstrap.min.css">
