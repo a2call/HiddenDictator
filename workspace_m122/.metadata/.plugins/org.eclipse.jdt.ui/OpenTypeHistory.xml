@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+<typeInfo handle="=ch.dnisler.hiddendictator/src&lt;ch.dnisler.hiddendictator{Server.java[Server" modifiers="17" timestamp="1458555527384"/>
+<typeInfo handle="=ch.dnisler.hiddendictator/src&lt;ch.dnisler.hiddendictator{Lobby.java[Lobby" modifiers="1" timestamp="1458548209492"/>
+<typeInfo handle="=ch.dnisler.hiddendictator/src&lt;ch.dnisler.hiddendictator{User.java[User" modifiers="1" timestamp="1458555448221"/>
+</typeInfoHistroy>

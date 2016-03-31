@@ -1,5 +1,10 @@
 package ch.dnisler.hiddendictator;
 
+/**
+ * This class represents the User object
+ * @author Dominik
+ *
+ */
 public class User {
 	private String name;
 	private String status;
@@ -10,6 +15,12 @@ public class User {
 	private boolean isAdm = false;
 	private boolean isReady = false;
 
+	/**
+	 * Creates a new user with the given name
+	 * 
+	 * @param name
+	 *            the name of the User
+	 */
 	public User(String name) {
 		this.setName(name);
 	}
@@ -46,6 +57,14 @@ public class User {
 		this.lobby = lobby;
 	}
 
+	/**
+	 * Gets the secure faction name (so liberals can't see others faction) but
+	 * returns the true faction for supporters
+	 * 
+	 * @param requester
+	 *            the requesting user
+	 * @return the Faction (out of Constants)
+	 */
 	public String getFactionSecure(String requester) {
 		String reqFaction = Server.getUser(requester).getFaction();
 		if (requester.equals(this.getName())) {
@@ -58,7 +77,6 @@ public class User {
 			}
 		}
 	}
-	
 
 	public String getFaction() {
 		return faction;
@@ -79,7 +97,8 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public String getRole(){
+
+	public String getRole() {
 		return role;
 	}
 

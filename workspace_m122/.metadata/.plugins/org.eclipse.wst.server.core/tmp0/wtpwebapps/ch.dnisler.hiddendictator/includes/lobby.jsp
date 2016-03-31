@@ -1,4 +1,4 @@
-<%@page import="ch.dnisler.hiddendictator.Vote"%>
+"WebContent/includes/lobby.jsp"<%@page import="ch.dnisler.hiddendictator.Vote"%>
 <%@page import="java.util.logging.Logger"%>
 <%@page import="ch.dnisler.hiddendictator.Util"%>
 <%@page import="ch.dnisler.hiddendictator.Constants"%>

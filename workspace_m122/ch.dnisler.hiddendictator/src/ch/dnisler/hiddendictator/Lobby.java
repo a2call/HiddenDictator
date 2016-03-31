@@ -2,6 +2,7 @@ package ch.dnisler.hiddendictator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.logging.Logger;
 
@@ -38,8 +39,11 @@ public class Lobby {
 	 * @return
 	 */
 	public boolean addUser(String username, boolean isAdm) {
-		Server.getUser(username).setAdm(isAdm);
 		User user = Server.getUser(username);
+		if (user == null) {
+			throw new NoSuchElementException("User does not exist.");
+		}
+		user.setAdm(isAdm);
 		if (userList.contains(user)) {
 			return false;
 		}
@@ -53,15 +57,22 @@ public class Lobby {
 		setIngame(true);
 		Random r = new Random();
 		userList.get(r.nextInt(userList.size() - 1)).setRole(Constants.ROLE_PRESIDENT);
-
 	}
 
-	public void nextTurn(User president) {
-		if (userList.indexOf(president) > userList.size()) {
+	/**
+	 * starts a new turn
+	 * 
+	 * @param president
+	 *            the current president
+	 * @return the new president
+	 */
+	public User nextTurn(User president) {
+		if (userList.indexOf(president) >= userList.size() - 1) {
 			userList.get(0).setRole(Constants.ROLE_PRESIDENT);
+			return userList.get(0);
 		} else {
 			userList.get(userList.indexOf(president) + 1).setRole(Constants.ROLE_PRESIDENT);
-
+			return userList.get(userList.indexOf(president) + 1);
 		}
 	}
 
@@ -90,10 +101,6 @@ public class Lobby {
 			LOG.info("Liberal: " + liberal.getName());
 			liberal.setFaction(Constants.FACTION_LIBERAL);
 		}
-	}
-
-	public void nextTurn() {
-
 	}
 
 	public List<User> getUserList() {

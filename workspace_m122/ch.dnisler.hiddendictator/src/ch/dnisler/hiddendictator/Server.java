@@ -4,10 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-public class Server {
+/**
+ * This class represents the Server.
+ * 
+ * @author Dominik
+ *
+ */
+public final class Server {
 	private static Map<String, User> userMap = new HashMap<>();
 	private static Map<String, Lobby> lobbyMap = new HashMap<>();
 	private static final Logger LOG = Logger.getLogger(Server.class.getName());
+
+	private Server() {
+	};
 
 	public static User addUser(String username) {
 		if (userMap.containsKey(username)) {
@@ -15,7 +24,8 @@ public class Server {
 			return userMap.get(username);
 		} else {
 			LOG.info("User " + username + " joined the server");
-			return userMap.put(username, new User(username));
+			userMap.put(username, new User(username));
+			return userMap.get(username);
 		}
 	}
 
